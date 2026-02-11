@@ -1,0 +1,69 @@
+ /* [스타일 정의] */
+ body { font-family: 'Suit', 'Pretendard', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f6f8; color: #333; }
+ .container { background: white; border: 1px solid #e1e4e8; padding: 30px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+ 
+ .step-section { display: none; }
+
+/* active는 step-section에만 적용 */
+.step-section.active {
+  display: block;
+  animation: slideUp 0.4s ease-out;
+}
+ @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+ /* 입력 폼 */
+ label { display: block; margin-top: 15px; margin-bottom: 5px; font-weight: 700; color: #444; }
+ input[type="file"], input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; background: #fafafa; }
+ input:focus { outline: 2px solid #007bff; border-color: transparent; }
+ 
+ /* 로딩 바 */
+ .progress-container { width: 100%; background-color: #e0e0e0; border-radius: 10px; margin: 20px auto; overflow: hidden; max-width: 400px; }
+ .progress-bar { width: 30%; height: 8px; background-color: #007bff; border-radius: 10px; animation: loading-animation 1.5s infinite ease-in-out; }
+ @keyframes loading-animation { 0% { transform: translateX(-100%); } 50% { transform: translateX(120%); } 100% { transform: translateX(350%); } }
+ 
+ /* 버튼 */
+ button { width: 100%; padding: 14px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; margin-top: 12px; font-weight: 700; transition: all 0.2s; }
+ .btn-primary { background: #007bff; color: white; }
+ .btn-primary:hover { background: #0056b3; transform: translateY(-1px); }
+ .btn-success { background: #28a745; color: white; }
+ .btn-success:hover { background: #218838; transform: translateY(-1px); }
+ .btn-warning { background: #ffc107; color: #333; }
+ .btn-secondary { background: #6c757d; color: white; }
+ .btn-info { background: #17a2b8; color: white; } 
+ .btn-disabled { background: #ccc; cursor: not-allowed; color: #666; }
+
+ /* 검색 결과 카드 */
+ .search-result-card { background: #e3f2fd; border: 1px solid #90caf9; padding: 20px; border-radius: 12px; margin-bottom: 25px; }
+ .search-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; border-bottom: 1px solid #bbdefb; padding-bottom: 10px; }
+ .search-badge { background: #1565c0; color: white; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: bold; }
+ .search-title { font-size: 18px; font-weight: 800; color: #0d47a1; }
+ .search-content { font-size: 14px; color: #333; line-height: 1.6; max-height: 200px; overflow-y: auto; background: rgba(255,255,255,0.7); padding: 10px; border-radius: 8px; white-space: pre-wrap; }
+
+ /* 메타 정보 */
+ .meta-info { background: #fff3e0; padding: 15px; border-radius: 10px; border: 1px solid #ffe0b2; margin-bottom: 25px; }
+ .meta-label { font-size: 12px; color: #e65100; text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 5px; }
+ .meta-content { font-size: 16px; font-weight: 600; color: #333; margin-bottom: 15px; }
+ .thumbnail-box { background: #fce4ec; border: 1px dashed #f06292; padding: 15px; border-radius: 8px; margin-top: 15px; }
+ .thumbnail-label { color: #c2185b; font-weight: 800; font-size: 12px; margin-bottom: 5px; text-transform: uppercase; }
+ .thumbnail-text { color: #d81b60; font-size: 20px; font-weight: 800; }
+
+ /* 씬 카드 */
+ .scene-card { background: #fff; border: 1px solid #ddd; border-left: 5px solid #007bff; border-radius: 8px; margin-bottom: 20px; padding: 0; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+ .scene-header { background: #f1f3f5; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; }
+ .scene-badge { background: #333; color: white; padding: 4px 10px; border-radius: 12px; font-size: 13px; font-weight: bold; }
+ .time-badge { color: #555; font-weight: bold; font-family: monospace; font-size: 14px; display: flex; align-items: center; gap: 5px; }
+ .scene-body { padding: 15px; display: flex; flex-direction: column; gap: 12px; }
+ 
+ .row-item { display: flex; gap: 10px; align-items: flex-start; }
+ .icon-box { width: 24px; font-size: 18px; text-align: center; margin-top: 2px; }
+ .text-box-wrap { flex: 1; }
+ .label-tiny { font-size: 11px; color: #999; font-weight: bold; margin-bottom: 2px; display: block; }
+ .editable-area { padding: 8px; border-radius: 6px; border: 1px solid transparent; line-height: 1.5; font-size: 15px; }
+ .editable-area:hover { background: #fffde7; border: 1px dashed #ccc; cursor: text; }
+ .visual-text { color: #333; }
+ .audio-text { color: #d63384; font-weight: 500; }
+ .screen-text { color: #198754; font-family: sans-serif; background: #e8f5e9; padding: 5px 10px; display: inline-block; border-radius: 4px; }
+ .modal-overlay { display: none; }
+
+ .loader { text-align: center; margin-top: 40px; display: none; }
+ .hashtag-area { background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px dashed #ccc; margin-top: 15px; font-size: 14px; color: #333; line-height: 1.6; word-break: keep-all; }

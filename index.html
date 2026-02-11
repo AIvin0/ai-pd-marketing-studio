@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI PD - 마케팅 영상 기획</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎬 AI PD - 마케팅 영상 기획</h1>
+
+      <!-- Step 1 -->
+      <div id="step1" class="step-section active">
+        <h3>1단계: 소재 업로드</h3>
+        <p>상품과 캐릭터 이미지를 업로드하면 상세 스토리보드를 작성해줍니다.</p>
+
+        <label>상품 이미지</label>
+        <input type="file" id="productFile" accept="image/*" />
+
+        <label>캐릭터 이미지 (여러 장 가능)</label>
+        <input type="file" id="characterFile" accept="image/*" multiple />
+
+        <label>추가 요청사항</label>
+        <input
+          type="text"
+          id="userRequest"
+          placeholder="예: 20대 타겟, 진저에일의 청량감을 강조해줘"
+        />
+
+        <button id="btn-generate-plan" class="btn-primary">📝 스토리보드 생성하기</button>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="step2" class="step-section">
+        <h3>2단계: 기획안 검토 및 수정</h3>
+        <p style="color: #666; font-size: 14px">AI가 분석한 내용과 시나리오를 확인하세요.</p>
+
+        <div id="planDisplay"></div>
+
+        <div style="display: flex; gap: 10px; margin-top: 15px">
+          <button id="btn-retry-scenario" class="btn-warning" style="flex: 1">
+            ✍️ 시나리오만 다시 쓰기
+          </button>
+          <button id="btn-retry-full" class="btn-secondary" style="flex: 1">
+            🔄 검색부터 다시 하기
+          </button>
+        </div>
+
+        <button id="btn-go-production" class="btn-success" style="margin-top: 10px">
+          🚀 이대로 영상 제작 시작 (Step 3로 이동)
+        </button>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="step3" class="step-section">
+        <h3>3단계: 🎬 AI 영상 제작 스튜디오</h3>
+        <p>이미지 → 내레이션 → 영상 순서로 생성하세요.</p>
+
+        <div id="productionDisplay"></div>
+        <div id="finalResultDisplay" style="margin-top: 30px"></div>
+
+        <div style="margin-top: 20px; padding: 15px; background: #eee; border-radius: 8px; text-align: center">
+          <p>모든 장면이 준비되었나요?</p>
+          <button id="btn-final-merge" class="btn-primary">✨ 최종 영상 합치기 (Shotstack)</button>
+          <button id="btn-reset" class="btn-secondary" style="margin-top: 10px">처음으로 돌아가기</button>
+        </div>
+      </div>
+
+      <!-- Global Loader -->
+      <div id="loader" class="loader">
+        <h3 style="color: #007bff">🤖 AI가 작업 중입니다...</h3>
+        <div class="progress-container">
+          <div class="progress-bar"></div>
+        </div>
+        <p id="loading-text" style="color: #666; font-size: 14px">데이터를 분석하여 최적의 결과를 생성하고 있습니다.</p>
+      </div>
+
+      <!-- Modal -->
+      <div id="resultModal" class="modal-overlay">
+        <div class="modal-window">
+          <button id="btn-close-modal" class="close-btn">&times;</button>
+          <div class="modal-title">🎉 영상 제작 완료!</div>
+
+          <video id="finalVideoPlayer" class="final-video" controls playsinline>
+            <source src="" type="video/mp4" />
+          </video>
+
+          <div style="text-align: left; font-weight: bold; margin-bottom: 5px; color: #555">추천 해시태그</div>
+          <div id="finalHashtags" class="hashtag-area">#생성중...</div>
+
+          <button id="btn-copy-hashtags" class="btn-primary">📋 해시태그 복사하기</button>
+          <button id="btn-close-modal-2" class="btn-secondary">닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
