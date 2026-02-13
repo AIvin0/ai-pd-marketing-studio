@@ -22,7 +22,7 @@ export async function reqImage(sceneId) {
 
   // ✅ 연타 안정화: 이미 생성 중이면 취소/재시작 선택
   if (isSceneTaskInFlight(sceneId, "image")) {
-    const ok = confirm("이미지 생성이 진행 중입니다. 취소하고 다시 시작할까요?");
+    const ok = confirm("이미지 생성이 진행 중입니다.\n취소하고 다시 시작할까요?");
     if (!ok) return;
     cancelSceneTask(sceneId, "image");
   }
@@ -34,7 +34,7 @@ export async function reqImage(sceneId) {
   const hasImg = imgEl && imgEl.style.display !== "none" && imgEl.src.startsWith("http");
   const oldUrl = hasImg ? imgEl.src : null;
 
-  if (hasImg && !confirm("이미지가 이미 존재합니다. 덮어쓰고 새로 생성하시겠습니까?")) return;
+  if (hasImg && !confirm("이미지가 이미 존재합니다.\n덮어쓰고 새로 생성하시겠습니까?")) return;
 
   const { requestId, signal } = beginSceneTask(sceneId, "image");
 

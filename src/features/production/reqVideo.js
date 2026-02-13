@@ -21,7 +21,7 @@ export async function reqVideo(sceneId) {
   if (!store.lastJobId) return alert("먼저 1~2단계에서 시나리오를 생성해주세요.");
 
   if (isSceneTaskInFlight(sceneId, "video")) {
-    const ok = confirm("영상 생성이 진행 중입니다. 취소하고 다시 시작할까요?");
+    const ok = confirm("영상 생성이 진행 중입니다.\n취소하고 다시 시작할까요?");
     if (!ok) return;
     cancelSceneTask(sceneId, "video");
   }
@@ -40,7 +40,7 @@ export async function reqVideo(sceneId) {
   const hasVideo = vidEl && vidEl.style.display !== "none" && oldUrl;
 
   const ok = hasVideo
-    ? confirm("영상이 이미 존재합니다. 다시 생성하시겠습니까? (비용 발생)")
+    ? confirm("영상이 이미 존재합니다.\n다시 생성하시겠습니까? (비용 발생)")
     : confirm("영상을 생성하시겠습니까? (비용 발생)");
   if (!ok) return;
 

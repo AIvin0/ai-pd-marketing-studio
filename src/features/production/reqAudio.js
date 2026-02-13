@@ -21,7 +21,7 @@ export async function reqAudio(sceneId) {
   if (!store.lastJobId) return alert("먼저 1~2단계에서 시나리오를 생성해주세요.");
 
   if (isSceneTaskInFlight(sceneId, "audio")) {
-    const ok = confirm("내레이션 생성이 진행 중입니다. 취소하고 다시 시작할까요?");
+    const ok = confirm("내레이션 생성이 진행 중입니다.\n취소하고 다시 시작할까요?");
     if (!ok) return;
     cancelSceneTask(sceneId, "audio");
   }
@@ -38,7 +38,7 @@ export async function reqAudio(sceneId) {
   const hasAudio = container && container.style.display !== "none" && oldUrl;
 
   const msg = hasAudio
-    ? `기존 음성이 있습니다. 덮어쓰고 재생성하시겠습니까?\n\n"${script}"`
+    ? `기존 음성이 있습니다.\n덮어쓰고 재생성하시겠습니까?\n\n"${script}"`
     : `다음 대사로 음성을 생성하시겠습니까?\n\n"${script}"`;
   if (!confirm(msg)) return;
 

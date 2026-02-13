@@ -19,7 +19,7 @@ export async function reqFinalMerge() {
     return;
   }
 
-  if (!confirm("최종 영상을 생성하시겠습니까? (완료 시 결과가 표시됩니다)")) return;
+  if (!confirm("최종 영상을 생성하시겠습니까?\n(완료 시 결과가 표시됩니다)")) return;
 
   const { requestId, signal } = beginGlobalTask("final");
   showLoader("영상 제작 요청 중...");
@@ -42,7 +42,7 @@ export async function reqFinalMerge() {
         if (!isGlobalTaskCurrent("final", requestId)) return;
 
         hideLoader();
-        alert("생성 시간 초과. Airtable을 확인해주세요.");
+        alert("생성 시간 초과.\nAirtable을 확인해주세요.");
         endGlobalTask("final", requestId);
       },
       onError: (e) => console.error("pollFinal error:", e),
