@@ -26,7 +26,6 @@ jobs:
 
       - run: npm ci
 
-      # ✅ 여기서 VITE_API_BASE를 "빌드 시점"에 주입
       - run: npm run build
         env:
           VITE_API_BASE: https://n8n-proxy.showong0505.workers.dev
