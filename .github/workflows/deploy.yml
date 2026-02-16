@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20.20.0"
+          node-version: "24"
           cache: "npm"
 
       # ✅ 핵심: npm optional dependency 버그 회피 (Rollup 네이티브 패키지)
